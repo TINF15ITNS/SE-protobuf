@@ -16,7 +16,7 @@ message RegisterRequest {
   Timestamp birthday = 5;
   string telephone_number = 6;
   string email = 7;
-  // Profile picture / bool sharelocation
+  bool share_location = 8;
 }
 
 message LoginRequest {
