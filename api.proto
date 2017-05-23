@@ -7,8 +7,6 @@ option objc_class_prefix = "HLW";
 
 package friendscomm.api;
 
-import "messages.proto";
-
 service ServerService {
   // Profile Interactions
   rpc Register        (RegisterRequest) returns (LoginResponse) {}
