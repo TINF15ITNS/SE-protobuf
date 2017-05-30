@@ -68,47 +68,53 @@ message LoginRequest {
 }
 
 message UpdateProfileRequest {
-
+  string key = 1;
+  string value = 2;
 }
 
 message UpdatePasswordRequest {
-
+  string oldPassword = 1;
+  string newPassword = 2;
 }
 
-message DeleteProfileRequest {
-
+message DeleteProfileRequest { // DeleteUserRequest in class-diagram?
+  string password = 1;
 }
 
-message SearchForProfileRequest {
-
+message SearchForProfileRequest { // SearchUserRequest in class-diagram?
+  string telNumber = 1;
+  string nickname = 2;
 }
 
-message GetProfileDetailsRequest {
-
+message GetProfileDetailsRequest { // GetUserDetailsRequest in class-diagram?
+  string userUUID = 1;
+  string key = 2;
 }
 
 message CreateGroupRequest {
-
+  string title = 1;
+  bytes image = 2; // Datatype for Image?
 }
 
 message AddUserToGroupRequest {
-
+  string userUUID = 1;
+  int32 groupId = 2;
 }
 
 message GetFriendListRequest {
 
 }
 
-message AddFriendRequest {
-
+message AddFriendRequest { // AddFriendToFriendlistRequest in class-diagram?
+  string friendNickname = 1;
 }
 
-message RemoveFriendRequest {
-
+message RemoveFriendRequest { // RemoveFriendToFriendlistRequest in class-diagram?
+  string nickname = 1;
 }
 
 message CreateTodoListRequest {
-
+  string name = 1;
 }
 
 message GetTodoListsForUserRequest {
@@ -116,18 +122,21 @@ message GetTodoListsForUserRequest {
 }
 
 message GetTodoListRequest {
-
+  int32 todoListId = 1;
 }
 
 message ShareTodoListRequest {
-
+  int32 groupId = 1;
+  int32 todoListId = 2;
 }
 
 message UpdateTodoListEntryRequest {
-
+  string content = 1;
+  bool completed = 2;
+  int32 todoListEntryId = 3;
 }
 
-message ShareCalendarEntryRequest {
+message ShareCalendarEntryRequest { // Datatype and implementation?
 
 }
 
@@ -136,23 +145,34 @@ message GetDebtsRequest {
 }
 
 message CreateDebtRequest {
-
+  int32 debtId = 1; // Assigned by the server an therefore unknown at this point?
+  Timestamp returnDate = 2;
+  int32 amount = 3; // double?
+  Timestamp dateOfLoan = 4;
+  bool outstanding = 5;
 }
 
 message ConfirmDebtRequest {
-
+  int32 debtId = 1;
+  bool confirmed = 2;
 }
 
 message UpdateDebtRequest {
-
+  int32 debtId = 1;
+  Timestamp newReturnDate = 2;
+  int32 newAmount = 3; // double?
+  Timestamp newDateOfLoan = 4;
+  string newCreditorUUID = 5;
+  bool newOutstanding = 6;
 }
 
 message UpdateLocationRequest {
-
+  Location location = 1;
 }
 
 message ShareLocationRequest {
-
+  int32 groupId = 1;
+  Location location = 2;
 }
 
 message GetSharedLocationsRequest {
@@ -160,7 +180,7 @@ message GetSharedLocationsRequest {
 }
 
 message StartDriveByReminderRequest {
-
+  string destinationUserNickname = 1;
 }
 
 // Response messages
@@ -174,39 +194,39 @@ message LoginResponse {
   string token = 2;
 }
 
-message SearchForProfileResponse {
-
+message SearchForProfileResponse { // SearchUser in class-diagram?
+  repeated string uuidResult = 1;
 }
 
-message GetProfileDetailsResponse {
-
+message GetProfileDetailsResponse { // GetUserDetails in class-diagram?
+  string userDetails = 1;
 }
 
 message CreateGroupResponse {
-
+  int groupId = 1;
 }
 
 message GetFriendListResponse {
+  repeated string friendList = 1;
+}
+
+message CreateTodoListResponse { // Can it return a TodoList?
 
 }
 
-message CreateTodoListResponse {
+message GetTodoListsForUserResponse { // Can it return a  TodoList?
 
 }
 
-message GetTodoListsForUserResponse {
+message GetTodoListResponse { // Can it return a  TodoList?
 
 }
 
-message GetTodoListResponse {
+message GetDebtsResponse { // Can it return a  DebtList?
 
 }
 
-message GetDebtsResponse {
-
-}
-
-message GetSharedLocationsResponse {
+message GetSharedLocationsResponse { // Can it return a UserLoacation?
 
 }
 
