@@ -203,7 +203,7 @@ message GetProfileDetailsResponse { // GetUserDetails in class-diagram?
 }
 
 message CreateGroupResponse {
-  int groupId = 1;
+  int32 groupId = 1;
 }
 
 message GetFriendListResponse {
