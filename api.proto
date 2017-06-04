@@ -5,7 +5,7 @@ option java_package = "io.grpc.serverPackage";
 option java_outer_classname = "ServerProto";
 option objc_class_prefix = "HLW";
 
-package friendscomm.api;
+package serverPackage;
 
 service ServerService {
   // Profile Interactions
@@ -31,8 +31,6 @@ service ServerService {
   rpc ShareTodoList       (ShareTodoListRequest) returns (Response) {}
   rpc UpdateTodoListEntry (UpdateTodoListEntryRequest) returns (Response) {}
 
-  // ???
-
   // Calendar
   rpc ShareCalendarEntry (ShareCalendarEntryRequest) returns (Response) {}
   
@@ -52,29 +50,27 @@ service ServerService {
 
 // Request messages
 message RegisterRequest {
-  string username = 1;
+  string nickname = 1;
   string password = 2;
-  string name = 3;
-  string surname = 4;
-  Timestamp birthday = 5;
-  string telephone_number = 6;
-  string email = 7;
-  bool share_location = 8;
 }
 
 message LoginRequest {
-  string username = 1;
+  string nickname = 1;
   string password = 2;
 }
 
 message UpdateProfileRequest {
-  string key = 1;
-  string value = 2;
+  string name = 1;
+  string surname = 2;
+  string birthday = 3;
+  string phone = 4;
+  string email = 5;
+  //bool share_location = 6;
 }
 
 message UpdatePasswordRequest {
-  string oldPassword = 1;
-  string newPassword = 2;
+  string old_password = 1;
+  string new_password = 2;
 }
 
 message DeleteProfileRequest { // DeleteUserRequest in class-diagram?
