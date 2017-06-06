@@ -133,7 +133,7 @@ message UpdateTodoListEntryRequest {
 message ShareCalendarEntryRequest {
   string creator_nickname = 1;
   int32 group_id = 2;
-  byte entry_data = 3;
+  bytes entry_data = 3;
 }
 
 message GetDebtsRequest {
