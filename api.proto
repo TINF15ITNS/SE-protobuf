@@ -206,24 +206,60 @@ message GetFriendListResponse {
   repeated string friend_list = 1;
 }
 
-message CreateTodoListResponse { // Can it return a TodoList?
-
+message CreateTodoListResponse {
+  int32 todo_list_id = 1;
 }
 
-message GetTodoListsForUserResponse { // Can it return a  TodoList?
-
+message GetTodoListsForUserResponse {
+  repeated TodoList todo_lists = 1;
 }
 
-message GetTodoListResponse { // Can it return a  TodoList?
-
+message GetTodoListResponse {
+  TodoList todo_list = 1;
 }
 
-message GetDebtsResponse { // Can it return a  DebtList?
-
+message GetDebtsResponse {
+  DebtList debt_list = 1;
 }
 
-message GetSharedLocationsResponse { // Can it return a UserLoacation?
-
+message GetSharedLocationsResponse {
+  repeated UserLocation location_list = 1;
 }
 
 // Nested messages
+message Location {
+  float latitude = 1;
+  float longitude = 2;
+  string timestamp = 3;
+}
+
+message UserLocation {
+  string user_UUID = 1;
+  Location location = 2;
+}
+
+message TodoList {
+  int32 todo_list_id = 1;
+  string name = 2;
+  string creator_UUID = 3;
+  repeated TodoListEntry entries = 4;
+}
+
+message TodoListEntry {
+  string content = 1;
+  bool completed = 2;
+}
+
+message DebtList { 
+  repeated Debt debt_list = 1;
+}
+
+message Debt {
+  int32 debt_id = 1;
+  Timestamp return_date = 2;
+  int32 amount = 3; // double?
+  string debtor_UUID = 4;
+  Timestamp date_of_loan = 5;
+  string creditor_UUID = 6;
+  bool outstanding = 7;
+}
