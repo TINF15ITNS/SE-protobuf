@@ -141,9 +141,9 @@ message GetDebtsRequest {
 }
 
 message CreateDebtRequest {
-  Timestamp return_date = 1;
+  string return_date = 1;
   double amount = 2;
-  Timestamp date_of_loan = 3;
+  string date_of_loan = 3;
   bool outstanding = 4;
 }
 
@@ -154,9 +154,9 @@ message ConfirmDebtRequest {
 
 message UpdateDebtRequest {
   int32 debt_id = 1;
-  Timestamp new_return_date = 2;
+  string new_return_date = 2;
   double new_amount = 3;
-  Timestamp new_date_of_loan = 4;
+  string new_date_of_loan = 4;
   string new_creditor_nickname = 5;
   bool new_outstanding = 6;
 }
@@ -259,10 +259,10 @@ message DebtList {
 
 message Debt {
   int32 debt_id = 1;
-  Timestamp return_date = 2;
+  string return_date = 2;
   double amount = 3;
   string debtor_nickname = 4;
-  Timestamp date_of_loan = 5;
+  string date_of_loan = 5;
   string creditor_nickname = 6;
   bool outstanding = 7;
 }
