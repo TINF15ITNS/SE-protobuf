@@ -83,7 +83,6 @@ message SearchUserRequest {
 
 message GetUserDetailsRequest {
   string user_nickname = 1;
-  string key = 2;
 }
 
 message CreateGroupRequest {
@@ -195,7 +194,11 @@ message SearchUserResponse {
 }
 
 message GetUserDetailsResponse {
-  string user_details = 1;
+  string name = 1;
+  string surname = 2;
+  string birthday = 3;
+  string phone = 4;
+  string email = 5;
 }
 
 message CreateGroupResponse {
