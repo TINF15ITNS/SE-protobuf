@@ -78,8 +78,7 @@ message DeleteProfileRequest { // DeleteUserRequest in class-diagram?
 }
 
 message SearchForProfileRequest { // SearchUserRequest in class-diagram?
-  string tel_number = 1;
-  string nickname = 2;
+  string query = 1;
 }
 
 message GetProfileDetailsRequest { // GetUserDetailsRequest in class-diagram?
