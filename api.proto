@@ -97,7 +97,7 @@ message AddUserToGroupRequest {
 }
 
 message GetFriendListRequest {
-
+  //Empty
 }
 
 message AddFriendToFriendlistRequest {
@@ -113,7 +113,7 @@ message CreateTodoListRequest {
 }
 
 message GetTodoListsForUserRequest {
-
+  //Empty
 }
 
 message GetTodoListRequest {
@@ -131,12 +131,14 @@ message UpdateTodoListEntryRequest {
   int32 todo_list_entry_id = 3;
 }
 
-message ShareCalendarEntryRequest { // Datatype and implementation?
-
+message ShareCalendarEntryRequest {
+  string creator_nickname = 1;
+  int32 group_id = 2;
+  byte entry_data = 3;
 }
 
 message GetDebtsRequest {
-
+  //Empty
 }
 
 message CreateDebtRequest {
@@ -170,7 +172,7 @@ message ShareLocationRequest {
 }
 
 message GetSharedLocationsRequest {
-
+  //Empty
 }
 
 message StartDriveByReminderRequest {
