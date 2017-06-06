@@ -13,16 +13,16 @@ service ServerService {
   rpc Login	          (LoginRequest) returns (LoginResponse) {}
   rpc UpdateProfile   (UpdateProfileRequest) returns (Response) {}
   rpc UpdatePassword  (UpdatePasswordRequest) returns (Response) {}
-  rpc DeleteProfile   (DeleteProfileRequest) returns (Response) {}
+  rpc DeleteUser      (DeleteUserRequest) returns (Response) {}
 
   // Network
-  rpc SearchForProfile            (SearchForProfileRequest) returns (SearchForProfileResponse) {}
-  rpc GetProfileDetails           (GetProfileDetailsRequest) returns (GetProfileDetailsResponse) {}
+  rpc SearchUser                  (SearchUserRequest) returns (SearchUserResponse) {}
+  rpc GetUserDetails              (GetUserDetailsRequest) returns (GetUserDetailsResponse) {}
   rpc CreateGroup                 (CreateGroupRequest) returns (CreateGroupResponse) {}
-  rpc AddUserToGroup              (AddUserToGroupRequest) returns (Response) {} //? AddUser or AddFriend or AddToGroup
+  rpc AddUserToGroup              (AddUserToGroupRequest) returns (Response) {} //? AddUser or AddFriendToFriendlist or AddToGroup
   rpc GetFriendList               (GetFriendListRequest) returns (GetFriendListResponse) {}
-  rpc AddFriendToFriendList       (AddFriendRequest) returns (Response) {}
-  rpc RemoveFriendFromFriendList  (RemoveFriendRequest) returns (Response) {}
+  rpc AddFriendToFriendlist       (AddFriendToFriendlistRequest) returns (Response) {}
+  rpc RemoveFriendFromFriendlist  (RemoveFriendFromFriendlistRequest) returns (Response) {}
   
   // Todo-list
   rpc CreateTodoList      (CreateTodoListRequest) returns (CreateTodoListResponse) {}
@@ -73,15 +73,15 @@ message UpdatePasswordRequest {
   string new_password = 2;
 }
 
-message DeleteProfileRequest { // DeleteUserRequest in class-diagram?
+message DeleteUserRequest {
   string password = 1;
 }
 
-message SearchForProfileRequest { // SearchUserRequest in class-diagram?
+message SearchUserRequest {
   string query = 1;
 }
 
-message GetProfileDetailsRequest { // GetUserDetailsRequest in class-diagram?
+message GetUserDetailsRequest {
   string user_UUID = 1;
   string key = 2;
 }
@@ -100,11 +100,11 @@ message GetFriendListRequest {
 
 }
 
-message AddFriendRequest { // AddFriendToFriendlistRequest in class-diagram?
+message AddFriendToFriendlistRequest {
   string friend_nickname = 1;
 }
 
-message RemoveFriendRequest { // RemoveFriendToFriendlistRequest in class-diagram?
+message RemoveFriendFromFriendlistRequest {
   string nickname = 1;
 }
 
@@ -188,11 +188,11 @@ message LoginResponse {
   string token = 2;
 }
 
-message SearchForProfileResponse { // SearchUser in class-diagram?
+message SearchUserResponse {
   repeated string uuid_result = 1;
 }
 
-message GetProfileDetailsResponse { // GetUserDetails in class-diagram?
+message GetUserDetailsResponse {
   string user_details = 1;
 }
 
