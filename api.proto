@@ -82,7 +82,7 @@ message SearchUserRequest {
 }
 
 message GetUserDetailsRequest {
-  string user_UUID = 1;
+  string user_nickname = 1;
   string key = 2;
 }
 
@@ -92,7 +92,7 @@ message CreateGroupRequest {
 }
 
 message AddUserToGroupRequest {
-  string user_UUID = 1;
+  string user_nickname = 1;
   int32 group_id = 2;
 }
 
@@ -156,7 +156,7 @@ message UpdateDebtRequest {
   Timestamp new_return_date = 2;
   double new_amount = 3;
   Timestamp new_date_of_loan = 4;
-  string new_creditor_UUID = 5;
+  string new_creditor_nickname = 5;
   bool new_outstanding = 6;
 }
 
@@ -189,7 +189,7 @@ message LoginResponse {
 }
 
 message SearchUserResponse {
-  repeated string uuid_result = 1;
+  repeated string nickname_result = 1;
 }
 
 message GetUserDetailsResponse {
@@ -232,14 +232,14 @@ message Location {
 }
 
 message UserLocation {
-  string user_UUID = 1;
+  string user_nickname = 1;
   Location location = 2;
 }
 
 message TodoList {
   int32 todo_list_id = 1;
   string name = 2;
-  string creator_UUID = 3;
+  string creator_nickname = 3;
   repeated TodoListEntry entries = 4;
 }
 
@@ -256,8 +256,8 @@ message Debt {
   int32 debt_id = 1;
   Timestamp return_date = 2;
   double amount = 3;
-  string debtor_UUID = 4;
+  string debtor_nickname = 4;
   Timestamp date_of_loan = 5;
-  string creditor_UUID = 6;
+  string creditor_nickname = 6;
   bool outstanding = 7;
 }
