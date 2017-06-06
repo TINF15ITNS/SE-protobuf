@@ -78,12 +78,12 @@ message DeleteProfileRequest { // DeleteUserRequest in class-diagram?
 }
 
 message SearchForProfileRequest { // SearchUserRequest in class-diagram?
-  string telNumber = 1;
+  string tel_number = 1;
   string nickname = 2;
 }
 
 message GetProfileDetailsRequest { // GetUserDetailsRequest in class-diagram?
-  string userUUID = 1;
+  string user_UUID = 1;
   string key = 2;
 }
 
@@ -93,8 +93,8 @@ message CreateGroupRequest {
 }
 
 message AddUserToGroupRequest {
-  string userUUID = 1;
-  int32 groupId = 2;
+  string user_UUID = 1;
+  int32 group_id = 2;
 }
 
 message GetFriendListRequest {
@@ -102,7 +102,7 @@ message GetFriendListRequest {
 }
 
 message AddFriendRequest { // AddFriendToFriendlistRequest in class-diagram?
-  string friendNickname = 1;
+  string friend_nickname = 1;
 }
 
 message RemoveFriendRequest { // RemoveFriendToFriendlistRequest in class-diagram?
@@ -118,18 +118,18 @@ message GetTodoListsForUserRequest {
 }
 
 message GetTodoListRequest {
-  int32 todoListId = 1;
+  int32 todo_list_id = 1;
 }
 
 message ShareTodoListRequest {
-  int32 groupId = 1;
-  int32 todoListId = 2;
+  int32 group_id = 1;
+  int32 todo_list_id = 2;
 }
 
 message UpdateTodoListEntryRequest {
   string content = 1;
   bool completed = 2;
-  int32 todoListEntryId = 3;
+  int32 todo_list_entry_id = 3;
 }
 
 message ShareCalendarEntryRequest { // Datatype and implementation?
@@ -141,25 +141,25 @@ message GetDebtsRequest {
 }
 
 message CreateDebtRequest {
-  int32 debtId = 1; // Assigned by the server an therefore unknown at this point?
-  Timestamp returnDate = 2;
+  int32 debt_id = 1; // Assigned by the server an therefore unknown at this point?
+  Timestamp return_date = 2;
   int32 amount = 3; // double?
-  Timestamp dateOfLoan = 4;
+  Timestamp date_of_loan = 4;
   bool outstanding = 5;
 }
 
 message ConfirmDebtRequest {
-  int32 debtId = 1;
+  int32 debt_id = 1;
   bool confirmed = 2;
 }
 
 message UpdateDebtRequest {
-  int32 debtId = 1;
-  Timestamp newReturnDate = 2;
-  int32 newAmount = 3; // double?
-  Timestamp newDateOfLoan = 4;
-  string newCreditorUUID = 5;
-  bool newOutstanding = 6;
+  int32 debt_id = 1;
+  Timestamp new_return_date = 2;
+  int32 new_amount = 3; // double?
+  Timestamp new_date_of_loan = 4;
+  string new_creditor_UUID = 5;
+  bool new_outstanding = 6;
 }
 
 message UpdateLocationRequest {
@@ -167,7 +167,7 @@ message UpdateLocationRequest {
 }
 
 message ShareLocationRequest {
-  int32 groupId = 1;
+  int32 group_id = 1;
   Location location = 2;
 }
 
@@ -176,7 +176,7 @@ message GetSharedLocationsRequest {
 }
 
 message StartDriveByReminderRequest {
-  string destinationUserNickname = 1;
+  string destination_user_nickname = 1;
 }
 
 // Response messages
@@ -191,19 +191,19 @@ message LoginResponse {
 }
 
 message SearchForProfileResponse { // SearchUser in class-diagram?
-  repeated string uuidResult = 1;
+  repeated string uuid_result = 1;
 }
 
 message GetProfileDetailsResponse { // GetUserDetails in class-diagram?
-  string userDetails = 1;
+  string user_details = 1;
 }
 
 message CreateGroupResponse {
-  int32 groupId = 1;
+  int32 group_id = 1;
 }
 
 message GetFriendListResponse {
-  repeated string friendList = 1;
+  repeated string friend_list = 1;
 }
 
 message CreateTodoListResponse { // Can it return a TodoList?
